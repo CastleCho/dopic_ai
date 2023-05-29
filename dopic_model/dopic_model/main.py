@@ -161,10 +161,11 @@ async def predict_base64_api(image_base64: ImageBase64):
     image = np.array(pil_image)
 
     predictions = []
-    file_predictions = {}
+    file_predictions = {} 
 
     for idx, model in enumerate(models_list):
         prediction, prediction_int = predict(pil_image, model)
+        
         if idx == 0:
             file_predictions['비듬'] = {'description': prediction, 'value': prediction_int}
         elif idx == 1:
@@ -176,10 +177,13 @@ async def predict_base64_api(image_base64: ImageBase64):
         elif idx == 4:
             file_predictions['모낭홍반농포'] = {'description': prediction, 'value': prediction_int}
         elif idx == 5:
-            file_predictions['모낭사이홍반'] = {'description' : prediction, 'value': prediction_int}
+            file_predictions['모낭사이홍반'] = {'description': prediction, 'value': prediction_int}
+
+    file_predictions['분석결과'] = {"분석결과": check_conditions(file_predictions)}
     predictions.append({"predictions": file_predictions})
 
-    return predictions
+    return {"predictions": predictions}
+
 
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)  
