@@ -1,5 +1,5 @@
-# dopic_api
-model api
+# dopic_ai
+model
 
 [Model talmo](https://drive.google.com/file/d/1-6hA7eo9Mth1rip-K7u9mHxk_LlD1PZy/view?usp=sharing)
 [Model mg](https://drive.google.com/file/d/1ALhrC1OW_kU5l819S_IaYm1pRv7wSjy8/view?usp=sharing)
